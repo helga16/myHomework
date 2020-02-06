@@ -44,7 +44,7 @@ echo findLongestStr($arrStr).'<br>';
 
 
 
-//3
+//3 код по подключению к базе в файле урока
 $arrSort = [];
 foreach($ss as $key){
     $nameAndSur = $key['first_name'].' '.$key['last_name'];

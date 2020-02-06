@@ -147,3 +147,10 @@ while($number<= $thirdNumber){
  }
  echo '<br>';
 echo $str;
+//3 уровень
+while($number<= $thirdNumber) {
+    (!($number%$firstNumber) && !($number%$secondNumber))? $str .= 'FB' : (!($number%$firstNumber)?$str .= 'F' : (!($number%$secondNumber)?$str .= 'B':$str .= "$number"));
+    $number ++;
+}
+echo '<br>';
+echo $str;

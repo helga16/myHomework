@@ -10,20 +10,14 @@ fwrite($newFile,$info);
 fclose($newFile);
 return 1;
 }
-//second way
-function df($myStr, $FILE = 'log/MyLog.txt')
-{
-$fp = fopen($_SERVER["DOCUMENT_ROOT"].$FILE, 'a+');
-$info = date("Y-m-d G:i:s")." ".print_r($myStr, true)."\r\n";
-}
 
 
 //2
 function units($first, $second, $third, $count = 1){
     $info='';
-    if($count ==1){
+    if($count - round($count,-1) ==1){
         $info= "$count $first";
-    }elseif($count >=2 && $count <5){
+    }elseif($count%10 >=2 && $count%10<=4 && ($count%100 >=20 || $count%100<10)){
         $info= "$count $second";
     }else{
         $info= "$count $third";
@@ -31,15 +25,8 @@ function units($first, $second, $third, $count = 1){
     return $info;
 }
 
-if($count - round($count) !=0){
-    $output = $first;
-}elseif($count%10 >=2 && $count%10<4 && ($count%100 >=20 || $count%100<10)){
-    $output = $second;
-}else{
-    $output = $third;
-}
-
-return $output;
+echo units('Ноутбук', 'Ноутбука', 'ноутбуков',5);
+echo '<br>';
 //3
 function EditData ($data){
     $mes = array(
@@ -56,13 +43,13 @@ function EditData ($data){
         "11" => "ноября",
         "12" => "декабря"
     );
+$arrData = explode('.',$data);
+$d = ($arrData[0]<10)?substr($arrData[0], 1):$arrData[0];
+$newData=$d." ".$mes[$arrData[1]]." ".$arrData[2];
 
-    return $mes[$data];
+    return $newData;
 }
-//$arData = explode('.',$data);
-$d = ($arData[0]<10)?substr($arData[0], start:1):$arData[0];
-$newData=$d." ".$MES[$arData[1]]."".$arData[2];
-return $newData;
+echo EditData('23.02.2020');
 //4
 $glOne = 12;
 $glTwo = 13;
@@ -108,17 +95,7 @@ function m_func($n,$m){
 
 echo 'result-  '.m_func(3,6);
 
-//
-if($count - round($count) !=0){
-    $output = $first;
-}elseif($count%10 >=2 && $count%10<4 && ($count%100 >=20 || $count%100<10)){
-    $output = $second;
-}else{
-    $output = $third;
-}
-}
-return $output;
-//
+
 
 //9
 $oneS = 6;
@@ -144,8 +121,8 @@ function myCalc()
 }
 
 echo 'result-  '.myCalc(8,5,2);
-
-//
+echo '<br>';
+// вывести числа Фибоначи
 
 function fib($n)
 {

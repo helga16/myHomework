@@ -39,7 +39,6 @@ function check($num)
 }
 function findSimple(){
     $arrayn=[1,2];
-
     for($i=3,$sum=0;count($arrayn)<COUNT_SIMPLE;$i++,$c++){
         if(check($i) !== false){
             $sum += $i;
@@ -49,11 +48,34 @@ function findSimple(){
     echo $sum;
     return $arrayn;
 }
+//3 уровень
+function checkEratosphen($num)
+{
+    for ($j=2;$i*$j<$num;$j++) {
+        if ($num % $j == 0) {
+            return false;
+        }
+    }
+}
+function findSimpleEratosphen(){
+    $arrayn=[1,2];
+    for($i=3,$sum=0;count($arrayn)<COUNT_SIMPLE;$i++,$c++){
+        if(checkEratosphen($i) !== false){
+            $sum += $i;
+            $arrayn[] = $i;
+        }
+    }
+    return $arrayn;
+}
 
-print_r(findSimple());
+
+//print_r(findSimple());
 echo '<br>';
 echo $sum;
 echo '<br>';
+print_r(findSimpleEratosphen());
+echo '<br>';
+
 //1
 function findSum($str){
     $arr= str_split($str,1);
@@ -92,7 +114,7 @@ function findArr($num){
 }
 print_r(findArr(40));
 echo '<br>';
-//4 почему не работает если в аргументе кириллица???
+//4
 function reduceName($stroka){
     $arr = explode(" ",ucwords($stroka));
 
@@ -105,7 +127,7 @@ $newArr=[$arr[0]];
 }
 var_dump(reduceName('ivanov Ivan Ivanovich'));
 
-//5  почему не работает если в аргументе кириллица???
+//5
 
 function findCity($arr,$city){
       $i = count($arr);
