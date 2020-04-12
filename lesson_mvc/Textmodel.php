@@ -1,6 +1,6 @@
 <?php
 namespace Framework\Model;
-use PDO;
+
 
 
 
@@ -12,7 +12,8 @@ class Textmodel {
 	
 
 	function __construct(){
-		$this->db = new PDO('mysql:host=127.0.0.1;dbname=test','olga','password');
+		$this->db = DB::getConnect();
+
 	}
 
 
