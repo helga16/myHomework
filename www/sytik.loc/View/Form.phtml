@@ -1,0 +1,64 @@
+<div class="formContainer">
+<form id="editCourses" method="POST" action="/">
+	<h2>Edit course</h2>
+	<input type="hidden" name="courseId" value="<?php echo(isset($_GET['editId']))?$_GET['editId']:'';?>">
+<label for="courseTitle">Change title</label>
+	<input id="courseTitle" type="text" name="courseTitle" placeholder="print course title" value="<?php echo(isset($_GET['editTitle']))?$_GET['editTitle']:'';?>">
+	<label for="courseTeacher">Change Teacher</label>
+
+	<input type="text" name="courseTeacher" placeholder="print course teacher" value="<?php echo(isset($_GET['editTeacher']))?$_GET['editTeacher']:'';?>">
+	<input type="submit" name="courseEdit" value="Edit">	
+
+</form>
+<form id="addCourses" method="POST" action="/">
+	<h2>Add course</h2>
+<label for="courseTitle">Add title</label>
+	<input id="courseTitle" type="text" name="addcourseTitle" placeholder="print course title">
+	<label for="courseTeacher">Add Teacher</label>
+	<input type="text" name="addcourseTeacher" placeholder="print course teacher">
+	<input type="submit" name="addCourse" value="Add">	
+
+</form>
+
+<form id="addStud" method="POST" action="/">
+	<h2>Add student</h2>
+<label for="addnameStud">Add name</label>
+	<input id="addnameStud" type="text" name="addnameStud" placeholder="print name">
+	<label for="addemailStud">Add email</label>
+	<input id = "addemailStud" type="email" name="addemailStud" placeholder="print email">
+	<input type="submit" name="addStud" value="Add">	
+
+</form>
+
+
+<form id="addStudOnCourse" method="POST" action="">
+	<h2>Add student on Course</h2>
+	<input type="text" name="id_course" placeholder="print id_course">
+	<input type="text" name="id_stud" placeholder="print id_stud">
+	<input type="submit" name="addStudOnCourse" value="Add">	
+	<input type="submit" name="delStudFromCourse" value="Delete">	
+
+</form>
+
+
+<form id="delStud" method="POST" action="/">
+	<h2>Delete student</h2>
+<label for="delStud">Delete student with id</label>
+	<input id="delStud" type="text" name="delStudId" placeholder="print id">
+
+	<input type="submit" name="delStud" value="Delete">	
+
+</form>
+
+	<form id="editStud" method="POST" action="/">
+	<h2>Edit stud</h2>
+	<input type="text" name="studId" placeholder="studId">
+<label for="studName">Change name</label>
+	<input id="studName" type="text" name="studName" placeholder="print studName" >
+	<label for="studEmail">Change studEmail</label>
+
+	<input type="text" name="studEmail" placeholder="print studEmail">
+	<input type="submit" name="studEdit" value="Edit">	
+
+</form>
+</div>

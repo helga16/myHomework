@@ -1,0 +1,7 @@
+     <div > 
+      <form class="hederForm" id="hederForm" method ="POST" action="">
+            <input class="<?php echo ($_SESSION['auth']==='log')?'invisible':'hederInput'; ?>" id="password" type="password" name="adminPass" placeholder="your password">
+            <input type="submit" name="adminEntry" value="<?php echo ($_SESSION['auth']==='log')?'Logout':'Login'; ?>">
+        </form>
+    </div>
+        
