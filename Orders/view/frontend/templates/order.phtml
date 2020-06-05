@@ -1,8 +1,37 @@
 <?php
 /**
  * @var \Alevel\Orders\Block\OrderBlock $block
+
  */
 ?>
+<?php
+
+$urlAjax = $block->getUrl('orders/show/test');
+
+$notes = $block->getNotes();
+ foreach ($notes as $item):
+    ?>
+ <?php /** @var \Alevel\Orders\Model\Ajaxorder $item */ ?>
+
+    <div><?= $item->getCustomerName();?></div>
+<?php endforeach;?>
 
 
-<h1><?= $block->getOrders(); ?></h1>
+<div class="ui-test" data-bind="scope: 'alevel-component'">
+
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+
+
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": <?= $block->getJsLayout()?>
+
+
+        }
+    }
+</script>
+

@@ -60,6 +60,23 @@
                     onDelete="CASCADE"/>
 
            </table>
+    <table name="ajax_order" resource="default" engine="innodb" comment="ajax_order">
+        <column xsi:type="int"
+                name="id"
+                unsigned="true"
+                padding="10"
+                nullable="false"
+                identity="true"
+                comment="id"/>
+        <column xsi:type="varchar"
+                name="label"
+                length="20"
+                nullable="false"
+                comment="label"/>
+        <constraint xsi:type="primary" referenceId = "PRIMARY">
+            <column name="id"/>
+        </constraint>
+          </table>
     </schema>
 
 
