@@ -59,6 +59,25 @@
                 </item>
             </argument>
         </filters>
+        <massaction name="listing_massaction">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="noItemsMsg" xsi:type="string">Type here any text</item>
+                </item>
+            </argument>
+            <action name="edit">
+                <argument name="data" xsi:type="array">
+                    <item name="config" xsi:type="array">
+                        <item name="type" xsi:type="string">edit</item>
+                        <item name="label" xsi:type="string" translate="true">Edit</item>
+                        <item name="callback" xsi:type="array">
+                            <item name="provider" xsi:type="string">alevel_order_listing.alevel_order_listing.alevel_order_columns_editor</item>
+                            <item name="target" xsi:type="string">editSelected</item>
+                        </item>
+                    </item>
+                </argument>
+            </action>
+        </massaction>
         <paging name="listing_paging">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
@@ -97,6 +116,13 @@
                 </item>
             </item>
         </argument>
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">order_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
         <column name="order_id">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">

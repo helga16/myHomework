@@ -6,23 +6,38 @@ namespace Alevel\Orders\Controller\Adminhtml\Edit;
 
 use Magento\Backend\App\Action;
 use Magento\Framework\App\ResponseInterface;
+use Alevel\Orders\Repository\OrderService;
+use Alevel\Orders\Repository\OrderRepository;
+use Magento\Framework\Controller\ResultFactory;
+use Magento\Backend\App\Action\Context;
+
 
 class Inlineedit extends Action
 {
+    private $context;
+
+
+    private $customerService;
+
+    private $customerRepository;
     protected $jsonFactory;
 
     public function __construct(
-        \Magento\Backend\App\Action\Context $context,
-        \Magento\Framework\Controller\Result\JsonFactory $jsonFactory
+        Context $context,
+           OrderService $customerService,
+        OrderRepository $customerRepository
     ) {
         parent::__construct($context);
-        $this->jsonFactory = $jsonFactory;
+         $this->context= $context;
+        $this->customerService = $customerService;
+        $this->customerRepository = $customerRepository;
     }
+
 
     public function execute()
     {
-        /** @var \Magento\Framework\Controller\Result\Json $resultJson */
-        $resultJson = $this->jsonFactory->create();
+        $resultJson = $this->resultFactory->create(ResultFactory::TYPE_JSON);
+
         $error = false;
         $messages = [];
 
@@ -34,19 +49,20 @@ class Inlineedit extends Action
                 $messages[] = __('Please correct the data sent.');
                 $error = true;
             }
-            /*else {
+            else {
                 foreach (array_keys($postItems) as $entityId) {
-                    $model = $this->_objectManager->create('Test\Test\Model\test')->load($entityId);
+                    /** @var \Alevel\Orders\Model\Orders $model */
+                    $model = $this->customerRepository->getById($entityId);
                     try {
                         $model->setData(array_merge($model->getData(), $postItems[$entityId]));
-                        $model->save();
+                        $this->customerRepository->save($model);
                     } catch (\Exception $e) {
                         $messages[] = "[Error:]  {$e->getMessage()}";
                         $error = true;
                     }
                 }
             }
-            */
+
         }
 
         return $resultJson->setData([

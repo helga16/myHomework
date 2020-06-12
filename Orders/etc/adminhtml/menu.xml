@@ -15,7 +15,7 @@
             module="Alevel_Orders"
             sortOrder="20"
             parent="Magento_Catalog::inventory"
-            action="alevelorders/users"
+            action="orders/users"
             resource="Alevel_Orders::users_list_access"
         />
     </menu>
