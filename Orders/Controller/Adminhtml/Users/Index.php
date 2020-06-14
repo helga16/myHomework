@@ -4,7 +4,6 @@
 namespace Alevel\Orders\Controller\Adminhtml\Users;
 
 use Magento\Backend\App\Action;
-
 use Magento\Framework\Controller\ResultFactory;
 
 /**
@@ -14,11 +13,12 @@ use Magento\Framework\Controller\ResultFactory;
 
 class Index extends Action
 {
-
+    /**
+     * @return \Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface|\Magento\Framework\View\Result\Layout
+     */
     public function execute()
     {
         $page =  $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-
         $page->setActiveMenu('Alevel_Orders::alevel_orders');
         $page->getConfig()->getTitle()->prepend(__('Alevel_Orders'));
         return $page;

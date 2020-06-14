@@ -7,7 +7,7 @@ use Magento\Backend\App\Action;
 use Magento\Backend\Model\View\Result\Page;
 use Magento\Framework\Controller\ResultFactory;
 
-class Index
+class Index extends Action
 {
     /**
      * @return Page|\Magento\Framework\App\ResponseInterface|\Magento\Framework\Controller\ResultInterface
@@ -15,7 +15,6 @@ class Index
     public function execute()
     {
         $page =  $resultJson = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
-
         $page->setActiveMenu('Alevel_Orders::alevel_orders_products');
         $page->getConfig()->getTitle()->prepend(__('Alevel_Orders'));
         return $page;
